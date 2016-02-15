@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Google Api Client Example</string>
+    <string name="use_games_api">Use Games API</string>
+    <string name="game_api_connected_with">Games Api connected with %1$s</string>
+    <string name="game_api_not_connected">Games Api not connected</string>
+    <string name="client_connection_suspended">Google Api Client connection suspended</string>
+
+    <string name="app_id" translatable="false">1036610246238</string>
+</resources>
