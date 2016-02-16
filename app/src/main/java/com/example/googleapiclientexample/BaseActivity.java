@@ -20,6 +20,7 @@ public abstract class BaseActivity extends AppCompatActivity implements GoogleAp
     private static final String DIALOG_ERROR = "dialog_error";
     protected GoogleApiClient googleApiClient;
     private boolean resolvingError = false;
+    private boolean usingGamesApi;
 
     protected void buildGoogleApiClient() {
         GoogleApiClient.Builder builder = new GoogleApiClient.Builder(this)
@@ -28,7 +29,10 @@ public abstract class BaseActivity extends AppCompatActivity implements GoogleAp
                 .addOnConnectionFailedListener(this);
 
         if (PrefUtils.useGamesApi(this)) {
+            usingGamesApi = true;
             builder.addApi(Games.API);
+        } else {
+            usingGamesApi = false;
         }
 
         googleApiClient = builder.build();
@@ -37,6 +41,9 @@ public abstract class BaseActivity extends AppCompatActivity implements GoogleAp
     @Override
     protected void onStart() {
         super.onStart();
+        if (usingGamesApi != PrefUtils.useGamesApi(this)) {
+            buildGoogleApiClient();
+        }
         googleApiClient.connect();
     }
 
