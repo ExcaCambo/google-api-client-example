@@ -24,7 +24,7 @@ public class FlowTest {
     public ActivityTestRule<MainActivity> activityRule = new ActivityTestRule<>(
             MainActivity.class);
 
-    static final String ACCOUNT_NAME = "friedger@gmail.com";
+    static final String ACCOUNT_NAME = "my@email";
 
     @Before
     public void setup() {
