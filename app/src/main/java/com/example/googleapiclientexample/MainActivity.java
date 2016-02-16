@@ -28,6 +28,13 @@ public class MainActivity extends BaseActivity {
     }
 
     @Override
+    protected void onStart() {
+        super.onStart();
+        contentView.setBackgroundResource(R.color.colorPrimaryDark);
+        textView.setText(R.string.client_connecting);
+    }
+
+    @Override
     public void onConnected(Bundle bundle) {
         if (googleApiClient.hasConnectedApi(Games.API)) {
             contentView.setBackgroundResource(android.R.color.white);
